@@ -1,0 +1,172 @@
+Question 1:
+
+  select Staff_name,LPAD(Staff_sal,15,'$') from Staff_Master;
+
+STAFF_NAME
+--------------------------------------------------
+LPAD(STAFF_SAL,15,'$')
+------------------------------------------------------------
+Kumar
+$$$$$$$$$$15000
+
+ajith
+$$$$$$$$$$45000
+
+Lakshmi
+$$$$$$$$$$40000
+
+
+STAFF_NAME
+--------------------------------------------------
+LPAD(STAFF_SAL,15,'$')
+------------------------------------------------------------
+priya_cath
+$$$$$$$$$$30000
+
+srikanth
+$$$$$$$$$$40000
+
+prathik_roy
+$$$$$$$$$$50000
+
+
+6 rows selected.
+
+Question 2:
+
+ select Student_name,TO_CHAR(Student_dob,'month,DD YYYY') as Student_dob from Student_Master where TO_CHAR(Student_dob,'DAY') LIKE '%SATURDAY%' OR TO_CHAR(student_dob,'DAY') LIKE '%SUNDAY%';
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_DOB
+--------------------------------------------
+Laasya
+september,11 1999
+
+Rishab
+july     ,30 1995
+
+Chandu
+november ,05 2000
+
+
+Question 3:
+ 
+ select Staff_name,round((sysdate-Hiredate)/12) as Months_worked from Staff_Master order by Months_worked;
+
+STAFF_NAME                                         MONTHS_WORKED
+-------------------------------------------------- -------------
+ajith                                                        293
+srikanth                                                     414
+Lakshmi                                                      442
+prathik_roy                                                  475
+priya_cath                                                   500
+Kumar                                                        538
+
+6 rows selected.
+
+Question 4:
+
+  select * from Staff_Master where TO_CHAR(Hiredate,'MM')=6 and TO_CHAR(Hiredate,'DD')<=15;
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       402 ajith                                                      202
+        42 10-JUN-10 11-MAY-92
+banglore
+        87      45000
+
+Question 5:
+
+ select Staff_name,Staff_sal , CASE
+  2  when Staff_sal>=50000 then 'A'
+  3  when Staff_sal>=25000 and Staff_sal<50000 then 'B'
+  4  when Staff_sal>=10000 and Staff_sal<25000 then 'C'
+  5  when Staff_sal<=10000 then 'D'
+  6  END as GRADE
+  7  from Staff_Master;
+
+STAFF_NAME                                          STAFF_SAL G
+-------------------------------------------------- ---------- -
+Kumar                                                   15000 C
+ajith                                                   45000 B
+Lakshmi                                                 40000 B
+priya_cath                                              30000 B
+srikanth                                                40000 B
+prathik_roy                                             50000 A
+
+6 rows selected.
+
+Question 6:
+
+ select Staff_name,Hiredate,TO_CHAR(Hiredate,'DAY') as DAY from Staff_Master order by MOD(TO_CHAR(Hiredate,'D')+5,7);
+
+STAFF_NAME                                         HIREDATE
+-------------------------------------------------- ---------
+DAY
+------------------------------------
+Kumar                                              21-MAY-02
+TUESDAY
+
+srikanth                                           22-JUN-06
+THURSDAY
+
+ajith                                              10-JUN-10
+THURSDAY
+
+
+STAFF_NAME                                         HIREDATE
+-------------------------------------------------- ---------
+DAY
+------------------------------------
+priya_cath                                         21-AUG-03
+THURSDAY
+
+prathik_roy                                        18-JUN-04
+FRIDAY
+
+Lakshmi                                            15-JUL-05
+FRIDAY
+
+
+6 rows selected.
+
+
+Question 7:
+
+ select INSTR('MISSISSIPPI','I',1,3) "Position found" from dual;
+
+Position found
+--------------
+             8
+
+Question 8:
+
+SQL> SELECT To_CHAR((NEXT_DAY(LAST_DAY( SYSDATE ) - 7 ,'FRIDAY')),'DDspth "of" Month, yyyy' )as "Pay Date" FROM   DUAL;
+
+Pay Date
+------------------------------------------------------------
+THIRTY-FIRST of January  , 2020
+
+Question 9:
+
+
+SQL> Select s.Student_Code as Rollno,s.Student_name as Name,Decode(d.Dept_Code,22,'Electricals',33,'Electronics','others')Dept_name from Student_Master s,Department_Master d where s.Dept_Code = d.Dept_Code;
+
+    ROLLNO NAME                                               DEPT_NAME
+---------- -------------------------------------------------- -----------
+       301 Laasya                                             others
+       302 Sindhu                                             others
+       303 Rishab                                             others
+       304 Dwaju                                              others
+       305 Chandu                                             others
+       306 hasan                                              others
+
+6 rows selected.
+

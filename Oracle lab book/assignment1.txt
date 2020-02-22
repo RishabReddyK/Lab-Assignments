@@ -1,0 +1,52 @@
+Question 1:
+
+ select Staff_name as STAFF_NAME,Design_code as DESIGN_CODE from Staff_Master where Staff_sal between 12000 and 24000 and Hiredate<'01-jan-2003';
+
+STAFF_NAME                                         DESIGN_CODE
+-------------------------------------------------- -----------
+Kumar                                                      201
+
+Question 2:
+
+select Staff_code,Staff_name,Dept_code,(sysdate-Hiredate)/365 as experience from Staff_Master where (sysdate-Hiredate)/365 >16 order by experience ASC;
+
+STAFF_CODE STAFF_NAME                                          DEPT_CODE
+---------- -------------------------------------------------- ----------
+EXPERIENCE
+----------
+       404 Priya                                                      44
+16.4394133
+
+       401 Kumar                                                      41
+17.6914681
+
+Question 3:
+
+ select Staff_code,Staff_name from Staff_Master where Mgr_code=0;
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+       401 Kumar
+       405 srikanth
+
+
+Question 4:
+
+  select Book_code,Book_name from Book_Master where Book_pub_year between 2001 and 2004 or Book_name like '% & %';
+
+ BOOK_CODE BOOK_NAME
+---------- --------------------------------------------------
+       505 java core & advance
+
+
+Question 5:
+
+ select Staff_name from Staff_Master where Staff_name like '%\_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+priya_cath
+prathik_roy
+
+
+

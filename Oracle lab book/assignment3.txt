@@ -1,0 +1,368 @@
+Question 1:
+
+select S.Staff_name,S.Dept_code,D.Dept_name from Staff_Master S,Department_Master D where S.Dept_code=D.Dept_code and S.Staff_sal>20000;
+
+STAFF_NAME                                          DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+ajith                                                      42
+HR
+
+Lakshmi                                                    43
+Finance
+
+priya_cath                                                 44
+Marketing
+
+
+STAFF_NAME                                          DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+srikanth                                                   45
+IT Services
+
+pasha                                                      46
+Research
+
+prathik_roy                                                46
+Research
+
+
+6 rows selected.
+
+
+Question 2:
+
+select S.Staff_code as Staff#,S.Staff_name as Staff,D.Dept_name,S.Mgr_code from Staff_Master S,Department_Master D where S.Dept_code=D.Dept_code;
+
+    STAFF# STAFF
+---------- --------------------------------------------------
+DEPT_NAME                                            MGR_CODE
+-------------------------------------------------- ----------
+       401 Kumar
+Network                                                    80
+
+       402 ajith
+HR                                                         87
+
+       403 Lakshmi
+Finance                                                    82
+
+
+    STAFF# STAFF
+---------- --------------------------------------------------
+DEPT_NAME                                            MGR_CODE
+-------------------------------------------------- ----------
+       404 priya_cath
+Marketing                                                  85
+
+       405 srikanth
+IT Services                                                83
+
+       407 pasha
+Research
+
+
+    STAFF# STAFF
+---------- --------------------------------------------------
+DEPT_NAME                                            MGR_CODE
+-------------------------------------------------- ----------
+       406 prathik_roy
+Research                                                   85
+
+
+7 rows selected.
+
+Question 3:
+
+ select S.Student_code,S.Student_name,B1.Book_code,B1.Book_name from Student_Master S,Book_Transactions B,Book_Master B1 where S.Student_code=B.Student_code and B1.Book_code=B.Book_code and Book_expected_return_date='22-jan-2020';
+
+STUDENT_CODE STUDENT_NAME                                        BOOK_CODE
+------------ -------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+         306 hasan                                                     506
+Python
+
+Question 4:
+SQL>  select bt.staff_code as "Staff Code",s.staff_name as "Staff Name",d.dept_name as "Department Name",de.design_name as "Designation Name",bt.book_code as "Book Code",b.book_name as "Book Name",bt.book_issue_date as "Issue Date" from Book_Transactions bt,Book_master b,Staff_Master s,Department_Master d,Designation_Master de where s.staff_code=bt.staff_code and bt.book_code=b.book_code and s.dept_code=d.dept_code and de.design_code=s.design_code and bt.book_issue_date>SYSDATE-30;
+
+Staff Code Staff Name
+---------- --------------------------------------------------
+Department Name
+--------------------------------------------------
+Designation Name                                    Book Code
+-------------------------------------------------- ----------
+Book Name                                          Issue Dat
+-------------------------------------------------- ---------
+       406 prathik_roy
+Research
+TR                                                        506
+Python                                             05-JAN-20
+
+Question 5:
+
+select S.Staff_code,S.Staff_name,D.Design_name,D1.Dept_name,B.Book_code,B.Book_name,B.Book_pub_author,((sysdate-Book_actual_return_date)*5) as Fine from Staff_Master S,Designation_Master D,Department_Master D1,Book_Master B,Book_Transactions B1 where S.Design_code=D.Design_code and S.Dept_code=D1.Dept_code and S.Staff_code=B1.Staff_code and B.Book_code=B1.Book_code;
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       401 Kumar
+HR
+Network                                                   501
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+C Language
+Al Kelley                                          1738.37818
+
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       402 ajith
+TR
+HR                                                        502
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+data structures
+Reema Thareja                                      2283.37818
+
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       403 Lakshmi
+Projret Manager
+Finance                                                   503
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+Networks
+Jim Kurose                                         2918.37818
+
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       404 priya_cath
+Projret Manager
+Marketing                                                 504
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+OOPS
+Richard                                            743.378183
+
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       405 srikanth
+HR
+IT Services                                               505
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+Java
+Herbert                                            1208.37818
+
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+       406 prathik_roy
+TR
+Research                                                  506
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+DESIGN_NAME
+--------------------------------------------------
+DEPT_NAME                                           BOOK_CODE
+-------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+BOOK_PUB_AUTHOR                                          FINE
+-------------------------------------------------- ----------
+Python
+Charles                                            3.37818287
+
+
+6 rows selected.
+
+Question 6:
+
+select Staff_code as "Staff Code",Staff_name as "Satff Name",Staff_sal as "Salary" from Staff_Master S where s.staff_sal>(select avg(staff_sal) from staff_master);
+
+Staff Code Satff Name                                             Salary
+---------- -------------------------------------------------- ----------
+       402 ajith                                                   45000
+       406 prathik_roy                                             50000
+       407 pasha                                                   70000
+
+Question 7:
+
+  select book_pub_author as "Author Name",book_name as "Book Name" from Book_Master b where book_pub_author in (select book_pub_author from Book_Master group by book_pub_author having count(distinct book_name)>1);
+
+
+Question 8:
+
+select distinct s.staff_code as "Staff Code",s.staff_name as "Name",d.dept_name as "Department Name" from staff_master s,department_master d where s.dept_code=d.dept_code and s.staff_code in (select staff_code from book_transactions group by staff_code having count( book_code)>1);
+
+Question 9:
+
+create table students_count as select dept_code,count(*) as "Number of Students" from staff_master group by dept_code order by count(*) desc fetch first row with ties;
+
+
+SQL> select s.student_code,s.student_name,d.dept_name from student_master s,department_master d,students_count sc where d.dept_code=s.dept_code and d.dept_code=sc.dept_code;
+
+Question 10:
+
+SQL> select s.staff_code as "Staff Code",s.staff_name as "Staff Name",d.dept_name as "Department Name",de.design_name as "Designation Name",s.hiredate as "HireDate" from staff_master s,department_master d,designation_master de where s.dept_code=d.dept_code and s.design_code=de.design_code and s.hiredate>sysdate-90;
+
+
+Question 11:
+
+SQL> select mgr_code as "Manager Code",count(staff_code) as "Strength" from staff_master group by mgr_code order by count(staff_code) desc;
+
+
+Manager Code   Strength
+------------ ----------
+          85          2
+          83          1
+          82          1
+          80          1
+          87          1
+                      1
+
+6 rows selected.
+
+Question 12:
+
+
+SQL> select * from book_transactions where book_actual_return_date is null and book_expected_return_date=(select to_char(next_day(sysdate-7,'monday'),'dd-MON-yyyy') from dual);
+
+
+Question 13:
+
+SQL> select s.dept_code as "Department Code",d.dept_name as "Department Name",count(s.staff_code) as "Number of People" from staff_master s,department_master d where s.dept_code=d.dept_code group by s.dept_code,d.dept_name;
+
+
+Department Code Department Name
+--------------- --------------------------------------------------
+Number of People
+----------------
+             43 Finance
+               1
+
+             45 IT Services
+               1
+
+             44 Marketing
+               1
+
+
+Department Code Department Name
+--------------- --------------------------------------------------
+Number of People
+----------------
+             41 Network
+               1
+
+             42 HR
+               1
+
+             46 Research
+               2
+
+
+6 rows selected.
+
+
+

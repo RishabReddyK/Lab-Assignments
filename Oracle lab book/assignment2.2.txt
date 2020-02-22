@@ -1,0 +1,38 @@
+Question 1:
+
+Select Dept_code,MAX(Staff_sal) as Maximum,MIN(Staff_sal) as Lowest,SUM(Staff_sal) as Total,round(AVG(Staff_sal)) as Average from Staff_Master group by(Dept_code);
+
+ DEPT_CODE    MAXIMUM     LOWEST      TOTAL    AVERAGE
+---------- ---------- ---------- ---------- ----------
+        42      45000      45000      45000      45000
+        43      40000      40000      40000      40000
+        44      30000      30000      30000      30000
+        46      50000      50000      50000      50000
+        41      15000      15000      15000      15000
+        45      40000      40000      40000      40000
+
+6 rows selected.
+
+Question 2:
+
+select Dept_code,COUNT(Mgr_code) as TOTAL_NUMBER_OF_MANAGERS from Staff_Master GROUP BY(Dept_code);
+
+ DEPT_CODE TOTAL_NUMBER_OF_MANAGERS
+---------- ------------------------
+        42                        1
+        43                        1
+        44                        1
+        46                        1
+        41                        1
+        45                        1
+
+6 rows selected.
+
+Question 3:
+
+SQL> select dept_code as "Department Number",sum(staff_sal) as "Sum" from staff_master s where mgr_code is null group by dept_code having sum(staff_sal)>10000 order by dept_code;
+
+Department Number        Sum
+----------------- ----------
+               46      70000
+
